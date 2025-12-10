@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Abubakar& Maimunatu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D4AF37;
+            --accent-color: #2E8B57;
+            --light-color: #FAF3E0;
+            --dark-color: #5D4037;
+            --sticky-bg: rgba(46, 139, 87, 0.95); /* Semi-transparent Accent Green */
+        }
+        
+        body {
+            background-color: #f9f5eb;
+            color: #333;
+            line-height: 1.6;
+            background-image: radial-gradient(#e0d6c2 2px, transparent 2px);
+            background-size: 20px 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* STICKY COUNTDOWN STYLES */
+        #sticky-countdown {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--sticky-bg);
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sticky-item {
+            display: inline-block;
+            margin: 0 10px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .sticky-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .sticky-label {
+            font-size: 0.7rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+        }
+        /* END STICKY COUNTDOWN STYLES */
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+        }
+        
+        .header-content {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid var(--primary-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: -5px;
+            left: 20%;
+        }
+        
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 25px 0 15px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .couple-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            gap: 40px;
+        }
+        
+        .person {
+            text-align: center;
+            max-width: 300px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .person:hover {
+            transform: translateY(-10px);
+        }
+        
+        .person-name {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .person-nickname {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin: 10px 0;
+        }
+        
+        .divider i {
+            margin: 0 15px;
+        }
+        
+        .details-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 30px auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--accent-color);
+            border-right: 5px solid var(--accent-color);
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .detail-icon {
+            background-color: var(--light-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .detail-text {
+            flex: 1;
+        }
+        
+        .detail-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .detail-content {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+        
+        .location-map {
+            height: 300px;
+            background-color: #e8f4f8;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            border: 2px dashed var(--accent-color);
+        }
+        
+        /* RSVP Section Styling */
+        .rsvp-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--light-color);
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s;
+        }
+        
+        .rsvp-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .rsvp-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .rsvp-button {
+            text-decoration: none; 
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .rsvp-accept {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .rsvp-reject {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .rsvp-button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            background-color: rgba(139, 69, 19, 0.9);
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .closing-message {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .signature {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        .islamic-pattern {
+            height: 80px;
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+            opacity: 0.3;
+            margin: 30px 0;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            #sticky-countdown {
+                 padding: 8px 0;
+                 flex-wrap: wrap;
+                 height: 70px;
+            }
+            .sticky-item {
+                margin: 0 5px;
+            }
+            .sticky-value {
+                font-size: 1.2rem;
+            }
+            .sticky-label {
+                font-size: 0.6rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .person {
+                max-width: 100%;
+            }
+            
+            .couple-section {
+                gap: 20px;
+            }
+            
+            .detail-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .detail-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* PARTICLE ANIMATION CSS */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            font-size: 1.2em;
+            animation: burst-float-up 1.5s cubic-bezier(0.1, 0.7, 0.5, 1) forwards;
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        @keyframes burst-float-up {
+            0% {
+                transform: translate(0, 0) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(calc(var(--rand-x) * 1px), calc(var(--rand-y) * 1px)) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sticky-countdown">
+        <i class="fas fa-ring" style="color: var(--secondary-color); margin-right: 15px; font-size: 1.2rem;"></i>
+        <div class="sticky-item">
+            <div class="sticky-value" id="sticky-days">00</div>
+            <div class="sticky-label">Days</div>
+        </div>
+        <div class="sticky-item">
+            <div class="sticky-value" id="sticky-hours">00</div>
+            <div class="sticky-label">Hours</div>
+        </div>
+        <div class="sticky-item">
+            <div class="sticky-value" id="sticky-minutes">00</div>
+            <div class="sticky-label">Minutes</div>
+        </div>
+        <div class="sticky-item">
+            <div class="sticky-value" id="sticky-seconds">00</div>
+            <div class="sticky-label">Seconds</div>
+        </div>
+        <i class="fas fa-ring" style="color: var(--secondary-color); margin-left: 15px; font-size: 1.2rem;"></i>
+    </div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>SPECIAL INVITATION</h1>
+                <p class="subtitle">We are honored to invite you to celebrate our wedding</p>
+                
+                <div class="islamic-pattern"></div>
+                
+                <div class="couple-section">
+                    <div class="person">
+                        <div class="person-name">Abubakar Muhammad</div>
+                        <div class="person-nickname">(Bangis)</div>
+                        <div class="person-icon">
+                            <i class="fas fa-user-tie fa-3x" style="color: var(--primary-color);"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="divider">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    
+                    <div class="person">
+                        <div class="person-name">Maimunatu Musa</div>
+                        <div class="person-nickname">(Unmy)</div>
+                        <div class="person-icon">
+                            <i class="fas fa-person-dress fa-3x" style="color: var(--accent-color);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <section class="details-section">
+                <h2>Wedding Details</h2>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="detail-text">
+                        <div class="detail-title">Date</div>
+                        <div class="detail-content">Friday, 2nd January, 2026</div>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="detail-text">
+                        <div class="detail-title">Time</div>
+                        <div class="detail-content">After Juma'at Prayer (Approx. 1:30 PM)</div>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="detail-text">
+                        <div class="detail-title">Venue</div>
+                        <div class="detail-content">Masallacin Jan Block Kasuwar, Funtua</div>
+                    </div>
+                </div>
+                
+                <div class="location-map">
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fas fa-map-marked-alt fa-3x" style="margin-bottom: 15px;"></i>
+                        <p>Masallacin Jan Block Kasuwar<br>Funtua, Katsina State, Nigeria</p>
+                    </div>
+                </div>
+                
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="rsvp-section" id="rsvp-section">
+                <div class="rsvp-title">Kindly RSVP before December 15, 2025 (Name Required)</div>
+                
+                <div class="rsvp-buttons" id="whatsapp-buttons-container">
+                    <button onclick="sendRSVP('accept')" class="rsvp-button rsvp-accept">
+                        <i class="fas fa-check-circle"></i> I Will Attend 
+                    </button>
+                    
+                    <button onclick="sendRSVP('decline')" class="rsvp-button rsvp-reject">
+                        <i class="fas fa-times-circle"></i> Unable to Attend (<!-- WhatsApp -->)
+                    </button>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                    *Note: Clicking a button will prompt you for your name before opening WhatsApp.*
+                </p>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="islamic-pattern" style="background-color: rgba(255,255,255,0.1);"></div>
+            
+            <div class="closing-message">
+                <i class="fas fa-hands-praying"></i> With love and duas <i class="fas fa-hands-praying"></i>
+            </div>
+            
+            <div class="signature">
+                On behalf of the family
+            </div>
+            
+            <div style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+                We look forward to celebrating with you on this blessed occasion
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // --- ANIMATION SCRIPT START ---
+        
+        const particles = ['⭐', '✨', '💍💍', '💕💕💕', '💕'];
+        const burstCount = 5;
+
+        const randomRange = (min, max) => Math.random() * (max - min) + min;
+
+        function createParticle(x, y) {
+            const particle = document.createElement('span');
+            particle.classList.add('particle');
+            
+            const emoji = particles[Math.floor(Math.random() * particles.length)];
+            particle.innerHTML = emoji;
+            
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            
+            const randX = randomRange(-100, 100);
+            const randY = randomRange(-100, -50);
+            
+            particle.style.setProperty('--rand-x', randX);
+            particle.style.setProperty('--rand-y', randY);
+
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1500); 
+        }
+
+        function handleInteraction(x, y) {
+            for (let i = 0; i < burstCount; i++) {
+                createParticle(x, y);
+            }
+        }
+        
+        // Event Listener for Mouse Click (PC)
+        document.body.addEventListener('mousedown', function(e) {
+            handleInteraction(e.clientX, e.clientY);
+        });
+
+        // Event Listener for Touch Start (Mobile)
+        document.body.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 0) {
+                handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        });
+
+        // --- ANIMATION SCRIPT END ---
+
+        // --- RSVP FUNCTION START ---
+        const WHATSAPP_NUMBER = '2347031207252';
+
+        function sendRSVP(type) {
+            // Prompt the user for their name
+            let name = prompt("Please enter your name to RSVP:");
+            
+            // Check if the user entered a name and didn't cancel the prompt
+            if (name === null || name.trim() === "") {
+                alert("RSVP cancelled. Your name is required to process the message.");
+                return;
+            }
+
+            name = name.trim();
+            let message = "";
+
+            if (type === 'accept') {
+                message = `Assalamu Alaikum. My name is ${name}. I am delighted to accept the invitation to Abubakar and Maimunatu's wedding and look forward to celebrating with you!`;
+            } else if (type === 'decline') {
+                message = `Assalamu Alaikum. My name is ${name}. I am sorry I will be unable to attend Abubakar and Maimunatu's wedding. Wishing you both all the best in your marriage.`;
+            } else {
+                return;
+            }
+
+            // URL encode the message to ensure it transmits correctly
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Construct the final WhatsApp URL
+            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+            
+            // Open the WhatsApp URL in a new window/tab
+            window.open(whatsappURL, '_blank');
+        }
+        // --- RSVP FUNCTION END ---
+        
+        // Countdown to the wedding date
+        function updateCountdown() {
+            // Target date is January 2, 2026 at 1:30 PM (13:30:00)
+            const weddingDate = new Date('January 2, 2026 13:30:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+            
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            const stickyDaysEl = document.getElementById('sticky-days');
+            const stickyHoursEl = document.getElementById('sticky-hours');
+            const stickyMinutesEl = document.getElementById('sticky-minutes');
+            const stickySecondsEl = document.getElementById('sticky-seconds');
+            
+            if (timeLeft < 0) {
+                const message = '<div style="text-align:center; padding:20px; font-size:1.5rem; color: var(--accent-color);">The wedding has taken place! Thank you for celebrating with us.</div>';
+                document.getElementById('countdown').innerHTML = message;
+                document.getElementById('sticky-countdown').innerHTML = '<span style="font-size: 1.1rem;">The celebration has begun!</span>';
+                return;
+            }
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            const pad = (num) => num.toString().padStart(2, '0');
+
+            if (daysEl && hoursEl && minutesEl && secondsEl) {
+                daysEl.innerText = pad(days);
+                hoursEl.innerText = pad(hours);
+                minutesEl.innerText = pad(minutes);
+                secondsEl.innerText = pad(seconds);
+            }
+            
+            if (stickyDaysEl && stickyHoursEl && stickyMinutesEl && stickySecondsEl) {
+                stickyDaysEl.innerText = pad(days);
+                stickyHoursEl.innerText = pad(hours);
+                stickyMinutesEl.innerText = pad(minutes);
+                stickySecondsEl.innerText = pad(seconds);
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Add some interactivity to the person cards
+        document.querySelectorAll('.person').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>
